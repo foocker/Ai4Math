@@ -25,7 +25,8 @@
 \begin{itemize}
     \item[0.] 问题2 引理1的验证
     \item[1.] 5.4和5.7连贯
-    \item[2.] 进度条第三章
+    \item[2.] 基本做完了
+    \item[3.] 闵可夫斯基理论 章节题目，需要一些先验（符号，背景等）
 \end{itemize}
 
 \section{第一章：高斯整数}
@@ -576,8 +577,6 @@ N_{K \mid \mathbb{Q}}\left( \frac{b_j}{p} \alpha^{n-1} \right) = \frac{b_j^n}{p^
 
 综上，条件 (1) 至 (4) 等价。
 
-
-
 \item[6] 
 \textbf{问题：} 证明 \(\left\{1, \theta, \frac{1}{2}(\theta + \theta^2)\right\}\) 是 \(\mathbb{Q}(\theta)\) 的整基，其中 \(\theta^3 - \theta - 4 = 0\)。\\
 \textbf{解答：} 因为问题涉及到判别式的计算，并且问题的证明较为复杂，需要到一些中间结论，方可得证。所以首先给出基本定义和一些中间结论，再作完整证明。
@@ -732,7 +731,17 @@ d_K \equiv (P + N)^2 \equiv 0 \text{ 或 } 1 \pmod{4}
 
 \item[1] 
 \textbf{问题：} 将 \(33 + 11 \sqrt{-7}\) 分解为 \(\mathbb{Q}(\sqrt{-7})\) 中不可约的整元素。\\
-\textbf{解答：} 根据练习 2.4，\(\mathbb{Q}(\sqrt{-7})\) 的整数环为 \(\mathbb{Z}\left[\frac{1 + \sqrt{-7}}{2}\right]\)。在此环中，首先分解 \(33 + 11 \sqrt{-7}\) 为：
+\textbf{解答：} 关于有理数域的二次扩域的整环，有如下命题，可做进一步分析和计算。\\
+\textbf{命题1：}设 \(D\) 为不等于 0 或 1 的无平方因子有理整数，\(K = \mathbb{Q}(\sqrt{D})\) 为二次数域，\(d\) 为其判别式。则：
+\[
+\begin{cases}
+d = D, & \text{若 } D \equiv 1 \pmod{4}, \\
+d = 4D, & \text{若 } D \equiv 2 \text{ 或 } 3 \pmod{4},
+\end{cases}
+\]
+且 \(K\) 的整基在第二种情况下为 \(\{1, \sqrt{D}\}\)，第一种情况下为 \(\left\{1, \frac{1}{2}(1 + \sqrt{D})\right\}\)，且在两种情况下均为 \(\left\{1, \frac{1}{2}(d + \sqrt{d})\right\}\)。\\
+
+根据\textbf{命题1}，\(\mathbb{Q}(\sqrt{-7})\) 的整数环为 \(\mathbb{Z}\left[\frac{1 + \sqrt{-7}}{2}\right]\)。在此环中，首先分解 \(33 + 11 \sqrt{-7}\) 为：
 \[
 33 + 11 \sqrt{-7} = 11 \cdot 2 \cdot \frac{3 + \sqrt{-7}}{2}
 \]
@@ -777,7 +786,17 @@ N\left(x + y \left(\frac{1 + \sqrt{-7}}{2}\right)\right) = \left(x + \frac{y}{2}
 
 \item[3] 
 \textbf{问题：} 设 \(d\) 为无平方因子整数，\(p\) 为不整除 \(2d\) 的素数，\(\mathcal{O}\) 为 \(\mathbb{Q}(\sqrt{d})\) 的整数环。证明 \((p) = p \mathcal{O}\) 是 \(\mathcal{O}\) 的素理想当且仅当同余式 \(x^2 \equiv d \pmod{p}\) 无解。\\
-\textbf{解答：} 引用 §1.1 的 1.7.2。由练习 2.4，\(\mathcal{O}\) 为 \(\mathbb{Z}[\sqrt{d}]\) 或 \(\mathbb{Z}\left[\frac{1 + \sqrt{d}}{2}\right]\)。  
+\textbf{解答：} \\
+\textbf{命题1：}设 \(D\) 为不等于 0 或 1 的无平方因子有理整数，\(K = \mathbb{Q}(\sqrt{D})\) 为二次数域，\(d\) 为其判别式。则：
+\[
+\begin{cases}
+d = D, & \text{若 } D \equiv 1 \pmod{4}, \\
+d = 4D, & \text{若 } D \equiv 2 \text{ 或 } 3 \pmod{4},
+\end{cases}
+\]
+且 \(K\) 的整基在第二种情况下为 \(\{1, \sqrt{D}\}\)，第一种情况下为 \(\left\{1, \frac{1}{2}(1 + \sqrt{D})\right\}\)，且在两种情况下均为 \(\left\{1, \frac{1}{2}(d + \sqrt{d})\right\}\)。\\
+
+由\textbf{命题1：}，\(\mathcal{O}\) 为 \(\mathbb{Z}[\sqrt{d}]\) 或 \(\mathbb{Z}\left[\frac{1 + \sqrt{d}}{2}\right]\)。  
 若 \(d\) 是模 \(p\) 的二次剩余，即存在整数 \(x\) 使得 \(x^2 \equiv d \pmod{p}\)。则 \(p \mid x^2 - d = (x + \sqrt{d})(x - \sqrt{d})\)。但因 \(p \neq 2\)，\(\frac{x + \sqrt{d}}{p}\) 和 \(\frac{x - \sqrt{d}}{p}\) 不在 \(\mathcal{O}\) 中，故 \(p\) 不是素元素，\((p)\) 不是素理想。  
 反之，若 \(d\) 不是模 \(p\) 的二次剩余，证明 \(p\) 是素元素。设 \(\mathcal{O}\) 中元素 \(x_1 + y_1 \sqrt{d}\) 和 \(x_2 + y_2 \sqrt{d}\) 的乘积在 \((p)\) 中。因 \(p \neq 2\)，\(\frac{x}{p} \in \mathbb{Z}\) 与 \(\frac{x}{p} \in \frac{1}{2} \mathbb{Z}\) 等价，可归约至 \(\mathcal{O} = \mathbb{Z}[\sqrt{d}]\)。由：
 \[
@@ -799,101 +818,157 @@ x_1^2 \equiv d y_1^2 \pmod{p}
 
 \item[4]
 \textbf{问题：} 具有有限个素理想的戴德金域是主理想域。\\
-\textbf{解答：} 首先证明 \(\mathcal{O}\) 仅有一个非零素理想 \(\mathfrak{p}\) 的情况（例如局部环）。存在 \(\pi \in \mathfrak{p} \setminus \mathfrak{p}^2\)。考虑理想 \((\pi)\)，由本节定理 (3.3)，其唯一分解为 \((\pi) = \mathfrak{p}^\nu\)。但 \(\pi \notin \mathfrak{p}^2\)，故 \((\pi) = \mathfrak{p}\)，表明 \(\mathcal{O}\) 唯一素理想为主理想。由定理 (3.3)，所有理想为主理想。  
+\textbf{解答：} 解答此题需要如下基本定理。\\
+\textbf{定理1：} 环 \(\mathcal{O}\) 中每个不同于 (0) 和 (1) 的理想  $\mathfrak{a}$ 都可以分解为
+$$
+\mathfrak{a}=\mathfrak{p}_1 \cdots \mathfrak{p}_r
+$$
+其中 $\mathfrak{p}_i$ 是 $\mathcal{O}$ 中的非零素理想，且这种分解除了因子的顺序外是唯一的。
+
+首先证明 \(\mathcal{O}\) 仅有一个非零素理想 \(\mathfrak{p}\) 的情况（例如局部环）。存在 \(\pi \in \mathfrak{p} \setminus \mathfrak{p}^2\)。考虑理想 \((\pi)\)，由\textbf{定理1：}，其唯一分解为 \((\pi) = \mathfrak{p}^\nu\)。但 \(\pi \notin \mathfrak{p}^2\)，故 \((\pi) = \mathfrak{p}\)，表明 \(\mathcal{O}\) 唯一素理想为主理想。由\textbf{定理1：}，所有理想为主理想。  
 对于 \(\mathcal{O}\) 有有限个素理想 \(\mathfrak{p}_1, \dots, \mathfrak{p}_r\) 的情况，若 \(\mathfrak{a} = \mathfrak{p}_1^{\nu_1} \cdots \mathfrak{p}_r^{\nu_r} \neq 0\)，取 \(\pi_i \in \mathfrak{p}_i \setminus \mathfrak{p}_i^2\)。由中国剩余定理，存在 \(a \in \mathcal{O}\) 对应余类 \(\pi_i^{\nu_i} \pmod{\mathfrak{p}_i^{\nu_i + 1}}\)。设 \((a) = \mathfrak{p}_1^{\mu_1} \cdots \mathfrak{p}_r^{\mu_r}\)。因 \(a \equiv \pi_i^{\nu_i} \pmod{\mathfrak{p}_i^{\nu_i + 1}}\)，\(a \notin \mathfrak{p}_i^{\nu_i + 1}\)，故 \(\mu_i \leq \nu_i\)；且 \(a \in \mathfrak{p}_i^{\mu_i}\)，故 \(\mu_i \geq \nu_i\)。因此 \((a) = \mathfrak{a}\)。
 
 \item[5]
 \textbf{问题：} 戴德金域 \(\mathcal{O}\) 被非零理想 \(\mathfrak{a}\) 商得的商环 \(\mathcal{O} / \mathfrak{a}\) 是主理想域。\\
-\textbf{解答：} （备注 5.1：此命题错误，\(\mathcal{O} / \mathfrak{a}\) 一般不是整环。正确结论为：\(\mathcal{O} / \mathfrak{a}\) 是主环，即每个理想为主理想。）\\
+\textbf{解答：} 此结论错误，\(\mathcal{O} / \mathfrak{a}\) 一般不是整环。正确结论为：\(\mathcal{O} / \mathfrak{a}\) 是主环，即每个理想为主理想。）\\
 首先证明 \(\mathfrak{a} = \mathfrak{p}^n\) 的情况。\(\mathcal{O} / \mathfrak{a}\) 的唯一真理想为 \(\mathfrak{p} / \mathfrak{p}^n, \dots, \mathfrak{p}^{n-1} / \mathfrak{p}^n\)。取 \(\pi \in \mathfrak{p} \setminus \mathfrak{p}^2\)，则 \(\pi^i \mathcal{O} / \mathfrak{p}^n = \mathfrak{p}^i / \mathfrak{p}^n\)（因 \(\pi^i \in \mathfrak{p}^i \setminus \mathfrak{p}^{i+1}\)），故所有真理想为主理想。  
 一般情况，注意到 PID 的商环仍是主环，用归纳法即可。\\
-\textbf{命题 5.2（戴德金性是局部性质）：} 设 \(D\) 为整环，则以下等价：\\
+\textbf{问题：} 设 \(D\) 为整环，则以下等价：\\
 1. \(D\) 是戴德金域；\\
 2. \(D\) 是诺特环，且对每个乘法闭子集 \(S\)，\(S^{-1} D\) 是戴德金域；\\
 3. \(D\) 是诺特环，且对每个素理想 \(\mathfrak{p}\)，\(D_\mathfrak{p}\) 是戴德金域；\\
 4. \(D\) 是诺特环，且对每个极大理想 \(\mathfrak{m}\)，\(D_\mathfrak{m}\) 是戴德金域。\\
-证明：戴德金域是诺特、整闭且非零素理想极大的环。\(S^{-1} D\) 的素理想对应于 \(D \setminus S\) 中的素理想，故“极大”条件是局部性质。由整闭性和诺特性的局部性得证。\\
-\textbf{备注 5.3：} “戴德金性是局部性质”指命题 5.2，非严格局部性质。例如，\(\mathbb{Z}\) 在 \(\mathbb{Q}\) 加入所有素数 \(p\) 的 \(p\) 次单位根的域中整闭包非诺特，故非戴德金域。
+\textbf{解答：} 以上刻画说明戴德金性是局部性质。证明如下：
+戴德金域是诺特、整闭且非零素理想极大的环。\(S^{-1} D\) 的素理想对应于 \(D \setminus S\) 中的素理想，故“极大”条件是局部性质。由整闭性和诺特性的局部性得证。\\
+\textbf{备注} “戴德金性是局部性质”指上述结论，是非严格局部性质。例如，\(\mathbb{Z}\) 在 \(\mathbb{Q}\) 加入所有素数 \(p\) 的 \(p\) 次单位根的域中整闭包非诺特，故非戴德金域。
 
 \item[6]
 \textbf{问题：} 戴德金域的每个理想可由两个元素生成。\\
-\textbf{解答：} 对 \(\mathcal{O}\) 的每个理想 \(\mathfrak{a}\)，取 \(a \in \mathfrak{a}\)，商环 \(\mathcal{O} / (a)\) 为主环（练习 5）。\(\mathfrak{a}\) 在 \(\mathcal{O} / (a)\) 中的像是主理想，由 \(b \pmod{(a)}\)（\(b \in \mathfrak{a}\)）生成，故 \(\mathfrak{a} = (a) + (b)\)。\\
-\textbf{定理 6.1：} 戴德金域 \(\mathcal{O}\) 是 PID 当且仅当其类群平凡。\\
-证明：若类群平凡，每分式理想为主理想，故 \(\mathcal{O}\) 是 PID。反之，若 \(\mathcal{O}\) 是 PID，对每个分式理想 \(\mathfrak{a}\)，存在 \(c \in \mathcal{O}\) 使 \(c \mathfrak{a}\) 为主理想，故 \(\mathfrak{a}\) 为主理想，类群平凡。
+\textbf{解答：} 对 \(\mathcal{O}\) 的每个理想 \(\mathfrak{a}\)，取 \(a \in \mathfrak{a}\)，商环 \(\mathcal{O} / (a)\) 为主环。\(\mathfrak{a}\) 在 \(\mathcal{O} / (a)\) 中的像是主理想，由 \(b \pmod{(a)}\)（\(b \in \mathfrak{a}\)）生成，故 \(\mathfrak{a} = (a) + (b)\)。\\
+\textbf{问题：} 戴德金域 \(\mathcal{O}\) 是 PID 当且仅当其类群平凡。\\
+\textbf{解答：}若类群平凡，每分式理想为主理想，故 \(\mathcal{O}\) 是 PID。反之，若 \(\mathcal{O}\) 是 PID，对每个分式理想 \(\mathfrak{a}\)，存在 \(c \in \mathcal{O}\) 使 \(c \mathfrak{a}\) 为主理想，故 \(\mathfrak{a}\) 为主理想，类群平凡。
+
+% \item[7]
+
+% \textbf{问题：} 在诺特环 \(R\) 中，若每个素理想极大，则每个理想降链 \(a_1 \supseteq a_2 \supseteq \cdots\) 最终稳定。\\
+% \textbf{备注} “每个素理想极大”意味着 \((0)\) 不能是素理想，除非 \(R\) 是域。
+
+% \textbf{解答：} 
+% 正式解答之前，需要回顾如下引理：\\
+
+% \textbf{ 引理7.1} 对于环 \(\mathcal{O}\) 中每个非零理想 \(\mathfrak{a} \neq 0\)，存在非零素理想 \(\mathfrak{p}_1, \mathfrak{p}_2, \ldots, \mathfrak{p}_r\)，使得
+% \[
+% \mathfrak{a} \supseteq \mathfrak{p}_1 \mathfrak{p}_2 \cdots \mathfrak{p}_r
+% \]
+
+% \textbf{引理证明：} 假设那些不满足该条件的理想集合 \(\mathfrak{M}\) 非空。由于 \(\mathcal{O}\) 是诺特环（Noetherian），每个理想的升链都会稳定。因此，\(\mathfrak{M}\) 关于包含关系是归纳序的，从而存在一个极大元素 \(\mathfrak{a}\)。这个 \(\mathfrak{a}\) 不可能是素理想，因此存在元素 \(b_1, b_2 \in \mathcal{O}\)，使得 \(b_1 b_2 \in \mathfrak{a}\)，但 \(b_1, b_2 \notin \mathfrak{a}\)。设 \(\mathfrak{a}_1 = (b_1) + \mathfrak{a}\)，\(\mathfrak{a}_2 = (b_2) + \mathfrak{a}\)。则有 \(\mathfrak{a} \varsubsetneqq \mathfrak{a}_1\)，\(\mathfrak{a} \varsubsetneqq \mathfrak{a}_2\)，并且 \(\mathfrak{a}_1 \mathfrak{a}_2 \subseteq \mathfrak{a}\)。由 \(\mathfrak{a}\) 的极大性，\(\mathfrak{a}_1\) 和 \(\mathfrak{a}_2\) 都包含一些素理想的乘积，而这些乘积的乘积又包含于 \(\mathfrak{a}\) 中，这导致矛盾。
+
+% 现对问题做解答：
+% 首先，我们证明在诺特环中，\((0)\) 具有素分解 \((0) = \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。实际上，由\textbf{ 引理7.1}，在诺特环中，每个真理想（包括 \((0)\)) 具有素分解。因此，我们有 \((0) \supset \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。但 \((0) = \{0\}\)，故 \((0) = \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。  
+% 此外，\(\mathfrak{p}_1, \dots, \mathfrak{p}_r\) 是所有素理想。若不是，则存在另一个素理想 \(\mathfrak{q}\) 使得 \(\mathfrak{p}_1 \cdots \mathfrak{p}_r = (0) \subset \mathfrak{q}\)。因此，其中某个素理想，例如 \(\mathfrak{p}_1\)，必须被包含在 \(\mathfrak{q}\) 中。但由于每个素理想是极大的，故 \(\mathfrak{p}_1 = \mathfrak{q}\)，这产生矛盾。  
+% 因此，我们得到一个理想的降链：
+% \[
+% R \supset \mathfrak{p}_1 \supset \mathfrak{p}_1 \mathfrak{p}_2 \supset \cdots \supset \mathfrak{p}_1 \cdots \mathfrak{p}_r = (0)
+% \]
+% 每个因子 \(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1} / \mathfrak{p}_1 \cdots \mathfrak{p}_i\) 是域 \(R / \mathfrak{p}_i\) 上的向量空间。对于向量空间 \(V\)，链条件等价于 \(\dim V\) 有限。因此，\(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1} / \mathfrak{p}_1 \cdots \mathfrak{p}_i\) 是诺特模当且仅当它是阿廷模，作为 \(R / \mathfrak{p}_i\)-模（进而作为 \(R\)-模）。反复应用如下\textbf{引理 7.2：}，我们看到 \(R\) 是诺特环当且仅当它是阿廷环。
+
+% \textbf{引理 7.2：} 设 \(0 \to M' \to M \to M'' \to 0\) 为 \(R\)-模的短正合序列，则 \(M\) 是诺特（或阿廷）模当且仅当 \(M'\) 和 \(M''\) 都是诺特（或阿廷）模。\\
+% 证明：\\
+% 对于 “当且” 部分, 注意到 \(M\) 的子模链 \((M_i)\) 由其在 \(M'\) 中的逆像 \((M_i')\) 和在 \(M''\) 中的像 \((M_i'')\) 控制。（Five-Lemma）：考虑以下交换图：
+% \[
+% \begin{tikzcd}
+% 0 \arrow[r] & M_i' \arrow[r] \arrow[d, "f_i'"] & M_i \arrow[r] \arrow[d, "f_i"] & M_i'' \arrow[r] \arrow[d, "f_i''"] & 0 \\
+% 0 \arrow[r] & M_{i+1}' \arrow[r] & M_{i+1} \arrow[r] & M_{i+1}'' \arrow[r] & 0
+% \end{tikzcd}
+% \]
+% 事实上，对于足够大的 \(i\)，嵌入 \(f_i': M_i' \to M'\) 和 \(f_i'': M_i'' \to M''\) 成为恒等映射，因此Five-Lemma，\(f_i: M_i \to M\) 也为恒等映射。因此，\(M\) 的子模链最终稳定。\\
+% 对于 “仅当” 部分, 仅仅注意到 \(M'\) 或 \(M''\) 的子模链会诱导 \(M\) 的子模链，故因 \(M\) 是诺特（或阿廷）模，\(M'\) 和 \(M''\) 的链也稳定。
+
+% \textbf{7.3（合成列）：} \(R\)-模 \(M\) 的合成列是子模链：
+% \[
+% M = M_0 \supset M_1 \supset \cdots \supset M_n = 0
+% \]
+% 其中无法插入额外子模。若 \(M\) 有合成列，则所有合成列长度相同（称为 \(M\) 的长度），任何子模链可扩展为合成。\\
+% \textbf{命题 7.4：} \(M\) 有合成列当且仅当 \(M\) 既是诺特模又是阿廷模。\\
+% 证明：若 \(M\) 有合成列，子模链长度有界，故 \(M\) 是诺特和阿廷模。  
+% 若 \(M\) 是诺特和阿廷模，构造合成列：因 \(M_0 = M\) 是诺特模，存在极大子模 \(M_1\)。类似地，\(M_1\) 有极大子模 \(M_2\)。继续得降链 \(M = M_0 \supset M_1 \supset M_2 \supset \cdots\)。因 \(M\) 是阿廷模，链有限，构成合成列。\\
+% \textbf{推论 7.5：} 对向量空间 \(V\)，以下等价：\\
+% 1. \(V\) 有限维；\\
+% 2. \(V\) 长度有限；\\
+% 3. \(V\) 是诺特模；\\
+% 4. \(V\) 是阿廷模。\\
+% 应用此结果，\(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1} / \mathfrak{p}_1 \cdots \mathfrak{p}_i\) 有限维，其子空间与 \(\mathfrak{p}_1 \cdots \mathfrak{p}_i\) 和 \(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1}\) 间的理想一一对应，故链 \(R \supset \mathfrak{p}_1 \supset \mathfrak{p}_1 \mathfrak{p}_2 \supset \cdots \supset \mathfrak{p}_1 \cdots \mathfrak{p}_r = (0)\) 可扩展为合成列，\(R\) 是阿廷环，降链稳定。
 
 \item[7]
 
 \textbf{问题：} 在诺特环 \(R\) 中，若每个素理想极大，则每个理想降链 \(a_1 \supseteq a_2 \supseteq \cdots\) 最终稳定。\\
-\textbf{7.1 备注} “每个素理想极大”意味着 \((0)\) 不能是素理想，除非 \(R\) 是域。
+\textbf{备注} "每个素理想极大"意味着 \((0)\) 不能是素理想，除非 \(R\) 是域。
 
-\textbf{解答：} \\
-证明：首先，我们证明在诺特环中，\((0)\) 具有素分解 \((0) = \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。实际上，由本节引理 (3.4)，在诺特环中，每个真理想（包括 \((0)\)) 具有素分解。因此，我们有 \((0) \supset \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。但 \((0) = \{0\}\)，故 \((0) = \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。  
-此外，\(\mathfrak{p}_1, \dots, \mathfrak{p}_r\) 是所有素理想。若不是，则存在另一个素理想 \(\mathfrak{q}\) 使得 \(\mathfrak{p}_1 \cdots \mathfrak{p}_r = (0) \subset \mathfrak{q}\)。因此，其中某个素理想，例如 \(\mathfrak{p}_1\)，必须被包含在 \(\mathfrak{q}\) 中。但由于每个素理想是极大的，故 \(\mathfrak{p}_1 = \mathfrak{q}\)，这产生矛盾。  
-因此，我们得到一个理想的降链：
+\textbf{解答：} 
+我们的证明策略是首先证明这样的环具有特殊的理想结构，然后利用这种结构来证明它同时满足诺特性和阿廷性，从而得出理想降链最终稳定的结论。首先需要以下引理：\\
+
+\textbf{引理7.1} 对于环 \(\mathcal{O}\) 中每个非零理想 \(\mathfrak{a} \neq 0\)，存在非零素理想 \(\mathfrak{p}_1, \mathfrak{p}_2, \ldots, \mathfrak{p}_r\)，使得
+\[
+\mathfrak{a} \supseteq \mathfrak{p}_1 \mathfrak{p}_2 \cdots \mathfrak{p}_r
+\]
+
+\textbf{引理证明：} 假设那些不满足该条件的理想集合 \(\mathfrak{M}\) 非空。由于 \(\mathcal{O}\) 是诺特环（Noetherian），每个理想的升链都会稳定。因此，\(\mathfrak{M}\) 关于包含关系是归纳序的，从而存在一个极大元素 \(\mathfrak{a}\)。这个 \(\mathfrak{a}\) 不可能是素理想，因此存在元素 \(b_1, b_2 \in \mathcal{O}\)，使得 \(b_1 b_2 \in \mathfrak{a}\)，但 \(b_1, b_2 \notin \mathfrak{a}\)。设 \(\mathfrak{a}_1 = (b_1) + \mathfrak{a}\)，\(\mathfrak{a}_2 = (b_2) + \mathfrak{a}\)。则有 \(\mathfrak{a} \varsubsetneqq \mathfrak{a}_1\)，\(\mathfrak{a} \varsubsetneqq \mathfrak{a}_2\)，并且 \(\mathfrak{a}_1 \mathfrak{a}_2 \subseteq \mathfrak{a}\)。由 \(\mathfrak{a}\) 的极大性，\(\mathfrak{a}_1\) 和 \(\mathfrak{a}_2\) 都包含一些素理想的乘积，而这些乘积的乘积又包含于 \(\mathfrak{a}\) 中，这导致矛盾。
+
+有了这个引理作为基础，我们现在可以开始解答原问题。我们的证明分为几个关键步骤：首先确定\((0)\)理想的素分解结构，然后分析这种结构所导致的代数性质。
+
+首先，我们证明在诺特环中，\((0)\) 具有素分解 \((0) = \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。实际上，由\textbf{引理7.1}，在诺特环中，每个真理想（包括 \((0)\)) 具有素分解。因此，我们有 \((0) \supset \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。但 \((0) = \{0\}\)，故 \((0) = \mathfrak{p}_1 \cdots \mathfrak{p}_r\)。
+
+此外，\(\mathfrak{p}_1, \dots, \mathfrak{p}_r\) 是所有素理想。若不是，则存在另一个素理想 \(\mathfrak{q}\) 使得 \(\mathfrak{p}_1 \cdots \mathfrak{p}_r = (0) \subset \mathfrak{q}\)。因此，其中某个素理想，例如 \(\mathfrak{p}_1\)，必须被包含在 \(\mathfrak{q}\) 中。但由于每个素理想是极大的，故 \(\mathfrak{p}_1 = \mathfrak{q}\)，这产生矛盾。
+
+接下来，我们需要分析环$R$的模结构。我们观察到前面得到的理想链实际上揭示了$R$的层次结构，每一层都可以视为向量空间。具体地，我们得到一个理想的降链：
 \[
 R \supset \mathfrak{p}_1 \supset \mathfrak{p}_1 \mathfrak{p}_2 \supset \cdots \supset \mathfrak{p}_1 \cdots \mathfrak{p}_r = (0)
 \]
-每个因子 \(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1} / \mathfrak{p}_1 \cdots \mathfrak{p}_i\) 是域 \(R / \mathfrak{p}_i\) 上的向量空间。对于向量空间 \(V\)，链条件等价于 \(\dim V\) 有限。因此，\(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1} / \mathfrak{p}_1 \cdots \mathfrak{p}_i\) 是诺特模当且仅当它是阿廷模，作为 \(R / \mathfrak{p}_i\)-模（进而作为 \(R\)-模）。反复应用引理 7.2，我们看到 \(R\) 是诺特环当且仅当它是阿廷环。
 
+每个因子 \(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1} / \mathfrak{p}_1 \cdots \mathfrak{p}_i\) 是域 \(R / \mathfrak{p}_i\) 上的向量空间。对于向量空间 \(V\)，链条件等价于 \(\dim V\) 有限。
+
+为了证明$R$同时具有诺特性和阿廷性，我们需要分析这些层次之间的关系。以下引理将帮助我们建立这种联系：
 
 \textbf{引理 7.2：} 设 \(0 \to M' \to M \to M'' \to 0\) 为 \(R\)-模的短正合序列，则 \(M\) 是诺特（或阿廷）模当且仅当 \(M'\) 和 \(M''\) 都是诺特（或阿廷）模。\\
-证明：\\
-\textbf{对于 “if” 部分：} 注意到 \(M\) 的子模链 \((M_i)\) 由其在 \(M'\) 中的逆像 \((M_i')\) 和在 \(M''\) 中的像 \((M_i'')\) 控制。依五引理（Five-Lemma）：考虑以下交换图：
+\textbf{证明：}\\
+对于 "当且" 部分, 注意到 \(M\) 的子模链 \((M_i)\) 由其在 \(M'\) 中的逆像 \((M_i')\) 和在 \(M''\) 中的像 \((M_i'')\) 控制。（Five-Lemma）：考虑以下交换图：
 \[
 \begin{tikzcd}
 0 \arrow[r] & M_i' \arrow[r] \arrow[d, "f_i'"] & M_i \arrow[r] \arrow[d, "f_i"] & M_i'' \arrow[r] \arrow[d, "f_i''"] & 0 \\
-0 \arrow[r] & M' \arrow[r] & M \arrow[r] & M'' \arrow[r] & 0
+0 \arrow[r] & M_{i+1}' \arrow[r] & M_{i+1} \arrow[r] & M_{i+1}'' \arrow[r] & 0
 \end{tikzcd}
 \]
-事实上，对于足够大的 \(i\)，嵌入 \(f_i': M_i' \to M'\) 和 \(f_i'': M_i'' \to M''\) 成为恒等映射，因此依五引理，\(f_i: M_i \to M\) 也为恒等映射。因此，\(M\) 的子模链最终稳定。\\
-\textbf{对于 “only if” 部分：} 仅仅注意到 \(M'\) 或 \(M''\) 的子模链会诱导 \(M\) 的子模链，故因 \(M\) 是诺特（或阿廷）模，\(M'\) 和 \(M''\) 的链也稳定。
+事实上，对于足够大的 \(i\)，嵌入 \(f_i': M_i' \to M'\) 和 \(f_i'': M_i'' \to M''\) 成为恒等映射，因此根据Five-Lemma，\(f_i: M_i \to M\) 也为恒等映射。因此，\(M\) 的子模链最终稳定。\\
+对于 "仅当" 部分, 仅仅注意到 \(M'\) 或 \(M''\) 的子模链会诱导 \(M\) 的子模链，故因 \(M\) 是诺特（或阿廷）模，\(M'\) 和 \(M''\) 的链也稳定。
 
+有了这个引理，我们可以通过归纳法将问题归约为分析各个因子空间的性质。为此，我们需要引入合成列的概念：
 
 \textbf{7.3（合成列）：} \(R\)-模 \(M\) 的合成列是子模链：
 \[
 M = M_0 \supset M_1 \supset \cdots \supset M_n = 0
 \]
-其中无法插入额外子模。若 \(M\) 有合成列，则所有合成列长度相同（称为 \(M\) 的长度），任何子模链可扩展为合成列（参考 [AM94]）。\\
+其中无法插入额外子模。若 \(M\) 有合成列，则所有合成列长度相同（称为 \(M\) 的长度），任何子模链可扩展为合成。\\
+
 \textbf{命题 7.4：} \(M\) 有合成列当且仅当 \(M\) 既是诺特模又是阿廷模。\\
-证明：若 \(M\) 有合成列，子模链长度有界，故 \(M\) 是诺特和阿廷模。  
-若 \(M\) 是诺特和阿廷模，构造合成列：因 \(M_0 = M\) 是诺特模，存在极大子模 \(M_1\)。类似地，\(M_1\) 有极大子模 \(M_2\)。继续得降链 \(M = M_0 \supset M_1 \supset M_2 \supset \cdots\)。因 \(M\) 是阿廷模，链有限，构成合成列。\\
+\textbf{证明：} 若 \(M\) 有合成列，子模链长度有界，故 \(M\) 是诺特和阿廷模。若 \(M\) 是诺特和阿廷模，构造合成列：因 \(M_0 = M\) 是诺特模，存在极大子模 \(M_1\)。类似地，\(M_1\) 有极大子模 \(M_2\)。继续得降链 \(M = M_0 \supset M_1 \supset M_2 \supset \cdots\)。因 \(M\) 是阿廷模，链有限，构成合成列。
+
 \textbf{推论 7.5：} 对向量空间 \(V\)，以下等价：\\
 1. \(V\) 有限维；\\
 2. \(V\) 长度有限；\\
 3. \(V\) 是诺特模；\\
 4. \(V\) 是阿廷模。\\
-应用此结果，\(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1} / \mathfrak{p}_1 \cdots \mathfrak{p}_i\) 有限维，其子空间与 \(\mathfrak{p}_1 \cdots \mathfrak{p}_i\) 和 \(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1}\) 间的理想一一对应，故链 \(R \supset \mathfrak{p}_1 \supset \mathfrak{p}_1 \mathfrak{p}_2 \supset \cdots \supset \mathfrak{p}_1 \cdots \mathfrak{p}_r = (0)\) 可扩展为合成列，\(R\) 是阿廷环，降链稳定。
 
+现在我们已经建立了必要的理论基础，可以将它应用到我们的具体问题上：
 
-\item[8]
-\textbf{问题：} 设 \(\mathfrak{m}\) 为戴德金域 \(\mathcal{O}\) 的非零整理想。证明在 \(\mathrm{Cl}_K\) 的每个理想类中，存在与 \(\mathfrak{m}\) 互素的整理想。\\
-\textbf{解答：} 对任意理想 \(\mathfrak{a}\) 和 \(\mathfrak{b}\)，需存在 \(c \in K\) 使 \(c \mathfrak{a}\) 与 \(\mathfrak{b}\) 互素。设 \(\mathfrak{p}_1, \dots, \mathfrak{p}_r\) 为包含 \(\mathfrak{b}\) 的所有不同素理想。由命题 8.3，存在 \(c_1 \in \mathcal{O}\) 使 \(\operatorname{ord}_{\mathfrak{p}_i} c_1 = \operatorname{ord}_{\mathfrak{p}_i} \mathfrak{a}\)，故 \(\operatorname{ord}_{\mathfrak{p}_i} c_1^{-1} \mathfrak{a} = 0\)。若 \(c_1^{-1} \mathfrak{a}\) 非整理想，设 \(\mathfrak{q}_1, \dots, \mathfrak{q}_s\) 为包含 \(c_1\) 且不同于 \(\mathfrak{p}_i\) 的素理想，再取 \(c_2 \in \mathcal{O}\) 使 \(\operatorname{ord}_{\mathfrak{p}_i} c_2 = 0\)、\(\operatorname{ord}_{\mathfrak{q}_j} c_2 = \operatorname{ord}_{\mathfrak{q}_j} c_1\)。则 \(c_2 c_1^{-1} \mathfrak{a}\) 为整理想且与 \(\mathfrak{b}\) 互素。\\
-\textbf{命题 8.3：} 对素理想 \(\mathfrak{p}_1, \dots, \mathfrak{p}_r\) 和整数 \(\nu_1, \dots, \nu_r\)，存在 \(x \in \mathcal{O}\) 使 \(\operatorname{ord}_{\mathfrak{p}_i} x = \nu_i\)（由中国剩余定理）。
+将以上结果综合应用到我们的环$R$上，我们发现：各因子 \(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1} / \mathfrak{p}_1 \cdots \mathfrak{p}_i\) 作为\(R/\mathfrak{p}_i\)上的向量空间是有限维的，其子空间与 \(\mathfrak{p}_1 \cdots \mathfrak{p}_i\) 和 \(\mathfrak{p}_1 \cdots \mathfrak{p}_{i-1}\) 间的理想一一对应。根据引理7.2，反复应用可知，我们的理想链 \(R \supset \mathfrak{p}_1 \supset \mathfrak{p}_1 \mathfrak{p}_2 \supset \cdots \supset \mathfrak{p}_1 \cdots \mathfrak{p}_r = (0)\) 可扩展为合成列，因此$R$不仅是诺特环，而且是阿廷环。
 
-\item[9]
-\textbf{问题：} 设 \(\mathcal{O}\) 为整环，其所有非零理想具有唯一素理想分解。证明 \(\mathcal{O}\) 是戴德金域。\\
-\textbf{解答：} \textbf{命题 9.3：} \(\mathcal{O}\) 的每个非零素理想 \(\mathfrak{p}\) 是极大的。\\
-证明：\\
-\textbf{步骤 1：} 对可逆素理想 \(\mathfrak{p}\)，对任意 \(a \in \mathcal{O} \setminus \mathfrak{p}\)，若 \((a) + \mathfrak{p} \neq \mathcal{O}\)，设 \((a) + \mathfrak{p} = \mathfrak{p}_1 \cdots \mathfrak{p}_m\)、\((a^2) + \mathfrak{p} = \mathfrak{q}_1 \cdots \mathfrak{q}_n\)。在 \(\mathcal{O} / \mathfrak{p}\) 中，\((b) = \mathfrak{p}_1 / \mathfrak{p} \cdots \mathfrak{p}_m / \mathfrak{p}\)、\((b^2) = \mathfrak{q}_1 / \mathfrak{p} \cdots \mathfrak{q}_n / \mathfrak{p}\)。由引理 9.2，\(\mathfrak{p}_i / \mathfrak{p}\)、\(\mathfrak{q}_j / \mathfrak{p}\) 可逆。由引理 9.1，\((\mathfrak{p}_1 / \mathfrak{p})^2 \cdots (\mathfrak{p}_m / \mathfrak{p})^2 = \mathfrak{q}_1 / \mathfrak{p} \cdots \mathfrak{q}_n / \mathfrak{p}\)，故 \(n = 2m\)。因此 \((a^2) + \mathfrak{p} = ((a) + \mathfrak{p})^2\)。则 \(\mathfrak{p} = a \mathfrak{p} + \mathfrak{p}^2\)。因 \(\mathfrak{p}\) 可逆，\((a) + \mathfrak{p} = \mathcal{O}\)。\\
-\textbf{步骤 2：} 证明每个非零素理想可逆。取 \(a \in \mathfrak{p} \setminus \{0\}\)，\((a) = \mathfrak{p}_1 \cdots \mathfrak{p}_n\)。由引理 9.2 和步骤 1，\(\mathfrak{p}_i\) 可逆且极大，故 \(\mathfrak{p} = \mathfrak{p}_i\)。\\
-\textbf{命题 9.7：} \(\mathcal{O}\) 是诺特环。\\
-证明：每个非零理想可逆（命题 9.4），故有限生成，\(\mathcal{O}\) 是诺特环。\\
-\textbf{命题 9.8：} 若 \(\mathcal{O}\) 是局部环，则整闭。\\
-证明：\(\mathcal{O}\) 仅有素理想 \(\mathfrak{m}\)。取 \(\pi \in \mathfrak{p} \setminus \mathfrak{p}^2\)，\((\pi) = \mathfrak{p}^\nu\)。因 \(\pi \notin \mathfrak{p}^2\)，\((\pi) = \mathfrak{p}\)，\(\mathcal{O}\) 是 PID，故整闭。\\
-由命题 9.3、9.7、9.8，局部情况下 \(\mathcal{O}\) 是戴德金域。一般情况，对素理想 \(\mathfrak{p}\)，\(\mathcal{O}_\mathfrak{p}\) 满足条件，由定理 9.9 是戴德金域。结合命题 5.2，\(\mathcal{O}\) 是戴德金域。
-
-\item[10]
-\textbf{问题：} 戴德金域 \(\mathcal{O}\) 的分式理想 \(\mathfrak{a}\) 是投影 \(\mathcal{O}\)-模。\\
-\textbf{解答：} \textbf{命题 10.1：} 每个有限生成无挠 \(\mathcal{O}\)-模是投影的。\\
-证明：对 PID，有限生成无挠模是自由的（[Lan02, III, 定理 7.3]），故投影。对有限生成无挠模 \(M\)，对素理想 \(\mathfrak{p}\)，\(M_\mathfrak{p}\) 在 \(\mathcal{O}_\mathfrak{p}\) 上自由，故投影。存在有限自由模 \(F\) 和满射 \(f: F \to M\)。局部分裂 \(g_\mathfrak{p}: M_\mathfrak{p} \to F_\mathfrak{p}\)。取 \(c_\mathfrak{p} \notin \mathfrak{p}\) 使 \(c_\mathfrak{p} g_\mathfrak{p}(M) \subset F\)。\(\{c_\mathfrak{p}\}\) 生成单位理想，否则矛盾。取 \(\sum x_i c_{\mathfrak{p}_i} = 1\)。定义 \(g = \sum x_i c_{\mathfrak{p}_i} g_{\mathfrak{p}_i}\)，则 \(f \circ g = \text{id}\)。故 \(M\) 是投影的。\\
-随即得证，分式理想 \(\mathfrak{a}\) 是投影 \(\mathcal{O}\)-模。
+总结上述分析，我们可以得出：在诺特环$R$中，若每个素理想都是极大的，则$R$同时是阿廷环，从而每个理想降链最终稳定。这完成了问题7的证明。
 
 \end{enumerate}
 
 \section{第四章：格}
 
 \subsection{练习题}
-
 \begin{enumerate}
 
 \item[1] 
@@ -902,9 +977,17 @@ M = M_0 \supset M_1 \supset \cdots \supset M_n = 0
 反之，若 \(\Gamma\) 不完备，设 \(V_0\) 为 \(\Gamma\) 生成的子空间 \(\mathbb{R}^n\) 中的子空间。则存在 \(v \in \mathbb{R}^n \setminus V_0\)，故 \(\pi|_{V_0}\) 是单射。因 \(\pi\) 是拓扑群的商映射，故是开映射，\(\pi|_{V_0}\) 是开嵌入。因此 \(\mathbb{R}^n / \Gamma\) 不是紧的。
 
 \item[2] 
-\textbf{问题：} 通过构造一个中心对称的凸集 \(X \subset V\) 的例子，证明闵可夫斯基格点定理无法改进，其中 \(\operatorname{vol}(X) = 2^n \operatorname{vol}(\Gamma)\) 但 \(X\) 不含 \(\Gamma\) 的任何非零格点。然而，若 \(X\) 是紧的，则在等式情况下定理 (4.4) 仍然成立。\\
-\textbf{解答：} 例如，考虑 \(\mathbb{R}^2\) 中的格 \(\mathbb{Z}^2\)。集合 \(X = (-1, 1) \times (-1, 1)\) 是中心对称的凸集，且体积为 4。但 \(X\) 不含任何非零格点。  
-对于第二部分，使用定理 (4.4) 的方法。需证明存在两个不同格点 \(\gamma_1, \gamma_2 \in \Gamma\)，使得：
+\textbf{问题：} 通过构造一个中心对称的凸集 \(X \subset V\) 的例子，证明闵可夫斯基格点定理无法改进，其中 \(\operatorname{vol}(X) = 2^n \operatorname{vol}(\Gamma)\) 但 \(X\) 不含 \(\Gamma\) 的任何非零格点。然而，若 \(X\) 是紧的，则在等式情况下定理 (闵可夫斯基格点) 仍然成立。\\
+\textbf{解答：} 
+首先回顾闵可夫斯基格点定理\\
+\textbf{ 定理（闵可夫斯基格点）：} 设 $\Gamma$ 是欧几里得向量空间 $V$ 中的完整格，$X$ 是 $V$ 中的中心对称凸子集。假设
+$$
+\operatorname{vol}(X)>2^n \operatorname{vol}(\Gamma)
+$$
+则 $X$ 至少包含一个非零格点 $\gamma \in \Gamma$。
+
+例如，考虑 \(\mathbb{R}^2\) 中的格 \(\mathbb{Z}^2\)。集合 \(X = (-1, 1) \times (-1, 1)\) 是中心对称的凸集，且体积为 4。但 \(X\) 不含任何非零格点。  
+对于第二部分，使用定理 (闵可夫斯基格点定理) 的方法。需证明存在两个不同格点 \(\gamma_1, \gamma_2 \in \Gamma\)，使得：
 \[
 \left(\frac{1}{2} X + \gamma_1\right) \cap \left(\frac{1}{2} X + \gamma_2\right) \neq \varnothing
 \]
@@ -952,7 +1035,19 @@ X = \left\{(x_1, \dots, x_n) \in \mathbb{R}^n \mid |L_i(x_1, \dots, x_n)| < c_i,
 |\tau a| < A (\mathcal{O}_K : \mathfrak{a})^{1/n},
 \]
 其中 \(n = [K : \mathbb{Q}]\)，对所有 \(\tau \in \operatorname{Hom}(K, \mathbb{C})\)。\\
-\textbf{解答：} 设 \(A = \sqrt[n]{(\frac{2}{\pi})^s \sqrt{|d_K|}}\)，则 \(c_\tau = A (\mathcal{O}_K : \mathfrak{a})^{1/n}\) 满足定理 (5.3) 的条件，故存在非零 \(a\)，对所有 \(\tau \in \operatorname{Hom}(K, \mathbb{C})\) 满足：
+
+\textbf{解答：} 已知\\
+\textbf{定理1.1：} 设 $\mathfrak{a} \neq 0$ 是数域 $K$ 的整理想，且 $c_\tau>0$，其中 $\tau \in \operatorname{Hom}(K, \mathbb{C})$，是满足 $c_\tau=c_{\bar{\tau}}$ 的实数，并且
+$$
+\prod_\tau c_{\mathfrak{\tau}}>A\left(\mathcal{O}_K: \mathfrak{a}\right)
+$$
+其中 $A=\left(\frac{2}{\pi}\right)^s \sqrt{\left|d_K\right|}$。则存在 $a \in \mathfrak{a}, a \neq 0$，使得
+$$
+|\tau a|<c_\tau \quad \text{对所有} \quad \tau \in \operatorname{Hom}(K, \mathbb{C})。
+$$
+
+根据定理1.1，
+设 \(A = \sqrt[n]{(\frac{2}{\pi})^s \sqrt{|d_K|}}\)，则 \(c_\tau = A (\mathcal{O}_K : \mathfrak{a})^{1/n}\) 满足定理 (1.1) 的条件，故存在非零 \(a\)，对所有 \(\tau \in \operatorname{Hom}(K, \mathbb{C})\) 满足：
 \[
 |\tau a| < A (\mathcal{O}_K : \mathfrak{a})^{1/n}
 \]
@@ -962,7 +1057,7 @@ X = \left\{(x_1, \dots, x_n) \in \mathbb{R}^n \mid |L_i(x_1, \dots, x_n)| < c_i,
 \[
 X = \left\{(z_\tau) \in K_{\mathbb{R}} \mid \sum_\tau |z_\tau| < t\right\}
 \]
-的体积为 \(\operatorname{vol}(X) = 2^r \pi^s \frac{t^n}{n!}\)（见第三章 (2.15)）。\\
+的体积为 \(\operatorname{vol}(X) = 2^r \pi^s \frac{t^n}{n!}\)。\\
 \textbf{解答：} \(X\) 在 \(\mathbb{R}^{r+2s}\) 中的像为：
 \[
 f(X) = \left\{(x_\tau) \in \prod_\tau \mathbb{R} \mid \sum_\rho |x_\rho| + 2 \sum_\sigma \sqrt{x_\sigma^2 + x_{\bar{\sigma}}^2} < t\right\}
